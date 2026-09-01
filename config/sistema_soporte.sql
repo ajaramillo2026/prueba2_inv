@@ -217,3 +217,16 @@ CREATE TABLE inventario (
     -- Optimiza drásticamente el rendimiento de la barra de filtros al buscar por coincidencia de texto
     UNIQUE KEY idx_nombre_unico (nombre)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+
+
+
+
+
+CREATE TABLE `inventario` (
+  `id` int(11) NOT NULL,
+  `nombre` varchar(150) NOT NULL,
+  `categoria` enum('Computo','Redes','Perifericos','Consumibles','Otros') NOT NULL DEFAULT 'Otros',
+  `stock` int(11) NOT NULL DEFAULT 0,
+  `fecha_actualizacion` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
